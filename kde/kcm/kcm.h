@@ -1,14 +1,25 @@
-#ifndef KCM_H
-#define KCM_H
+#ifndef NORDVPNCONFIG_H
+#define NORDVPNCONFIG_H
 
-#include <QtGlobal>
+#include "ui_kcm.h"
 #include <KCModule>
-#include <QObject>
+#include <KConfigCore/KConfigGroup>
 
-class KCM : public KCModule {
-    Q_OBJECT
+class KCMConfigForm : public QWidget, public Ui::KCM {
+Q_OBJECT
+
 public:
-    KCM(QWidget *parent, const QVariantList &args);
+    explicit KCMConfigForm(QWidget *parent);
 };
 
-#endif //KCM_H
+class KCMConfig : public KCModule {
+Q_OBJECT
+
+public:
+    explicit KCMConfig(QWidget *parent = nullptr, const QVariantList &args = QVariantList());
+
+private:
+    KCMConfigForm *m_ui;
+};
+
+#endif
