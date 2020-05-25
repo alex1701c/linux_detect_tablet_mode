@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KCModule
+X-KDE-Library=kcm_watch_tablet
+X-KDE-PluginKeyword=kcm_watch_tablet
+
+Name=kcm_watch_tablet
