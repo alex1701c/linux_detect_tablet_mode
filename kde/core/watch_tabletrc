@@ -1,0 +1,8 @@
+[Config]
+input_device=/dev/input/by-path/platform-thinkpad_acpi-event
+
+# QStringList of commands
+[Config][Modes]
+laptop=
+tablet=
+
