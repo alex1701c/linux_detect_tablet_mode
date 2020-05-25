@@ -48,6 +48,8 @@ void KCMConfig::save()
     if (initialDevice != m_ui->deviceLineEdit->text()) {
         KMessageBox::information(this, "The device has been changed, for the change sto take effect the watcher has to be restarted");
     }
+
+    config.config()->sync();
 }
 
 #include "kcm.moc"

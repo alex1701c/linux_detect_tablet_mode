@@ -24,8 +24,10 @@ void TabletWatcher::onChanged(const QString &output)
 {
      const static QRegularExpression modeRegex = QRegularExpression("switch tablet-mode state (\\d+)");
      const auto match = modeRegex.match(output);
-     KConfigGroup cfg = KSharedConfig::openConfig("watch_tabletrc", KConfig::SimpleConfig)->group("Config");
-     KConfigGroup modesGrp = cfg.group("Modes");
+     auto config = KSharedConfig::openConfig("watch_tabletrc", KConfig::SimpleConfig);
+     config->reparseConfiguration();
+     const KConfigGroup cfg = config->group("Config");
+     const KConfigGroup modesGrp = cfg.group("Modes");
      // 0 = laptop, 1 = tablet
      // If the regex does not match it is the initial process output from laptop mode
      const int mode = match.hasMatch() ? match.captured(1).toInt() : 0;
@@ -33,14 +35,14 @@ void TabletWatcher::onChanged(const QString &output)
         if (modesGrp.hasKey("laptop")) {
             const auto laptopCommands = modesGrp.readEntry("laptop", QStringList());
             for (const auto &command : laptopCommands) {
-                system(qPrintable(command));
+                Q_UNUSED(system(qPrintable(command)))
             }
         }
      } else if (mode == 1) {
          if (modesGrp.hasKey("tablet")) {
              const auto tabletCommands = modesGrp.readEntry("tablet", QStringList());
              for (const auto &command : tabletCommands) {
-                 system(qPrintable(command));
+                 Q_UNUSED(system(qPrintable(command)))
              }
          }
      } else {
