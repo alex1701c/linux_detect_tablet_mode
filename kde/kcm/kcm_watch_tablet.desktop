@@ -1,7 +1,17 @@
 [Desktop Entry]
 Type=Service
+Categories=Qt;KDE;X-KDE-settings-hardware;
+Name=Tablet Mode Watcher
+
+X-KDE-System-Settings-Category=input-devices
+X-KDE-System-Settings-Parent-Category=hardware
+Icon=computer-laptop
+
 X-KDE-ServiceTypes=KCModule
 X-KDE-Library=kcm_watch_tablet
 X-KDE-PluginKeyword=kcm_watch_tablet
+X-KDE-Weight=50
+OnlyShowIn=KDE;
 
-Name=kcm_watch_tablet
+X-KDE-Keywords=Tablet,Watcher,Script,Mode
+
