@@ -3,6 +3,6 @@ input_device=/dev/input/by-path/platform-thinkpad_acpi-event
 
 # QStringList of commands
 [Config][Modes]
-laptop=notify-send lapop
+laptop=notify-send laptop
 tablet=notify-send tablet
 

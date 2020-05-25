@@ -18,8 +18,14 @@ Q_OBJECT
 public:
     explicit KCMConfig(QWidget *parent = nullptr, const QVariantList &args = QVariantList());
 
+    KConfigGroup config, modesGroup;
+
+    void load() override;
+    void save() override;
+
 private:
     KCMConfigForm *m_ui;
+    QString initialDevice;
 };
 
 #endif
